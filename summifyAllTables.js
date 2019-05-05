@@ -1,8 +1,7 @@
 /* global chrome */
-(() => {
-  const runMe = `
-document.addEventListener('DOMContentLoaded', () => {
-
+;(() => {
+    const runMe = `
+;(() => {
     const summifyThisTable = (table) => {
         let columns = table.querySelectorAll(
             'th'
@@ -42,13 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     [...document.querySelectorAll('table')]
         .forEach(table => summifyThisTable(table))
-})
+})()
     `
-  try {
-    chrome.browserAction.onClicked.addListener(() => {
-      chrome.tabs.executeScript({
-        code: runMe
-      })
-    })
-  } catch (ignore) { }
+    try {
+        chrome.browserAction.onClicked.addListener(() => {
+            chrome.tabs.executeScript({
+                code: runMe
+            })
+        })
+    } catch (ignore) {}
 })()
